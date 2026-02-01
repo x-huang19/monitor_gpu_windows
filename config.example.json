@@ -1,0 +1,13 @@
+{
+  "server_host": "your.server.example.com",
+  "server_user": "root",
+  "server_password": "your_password",
+  "server_key_path": "C:/Users/you/.ssh/id_rsa",
+  "server_port": 22,
+  "poll_interval": 1.0,
+  "local_host": "127.0.0.1",
+  "local_port": 8787,
+  "ssh_connect_timeout": 5,
+  "ssh_command_timeout": 5,
+  "allow_unknown_hosts": true
+}

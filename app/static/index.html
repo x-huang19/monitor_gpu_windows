@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GPU Monitor</title>
+    <link rel="stylesheet" href="/static/app.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div>
+          <div class="title">GPU Monitor</div>
+          <div class="subtitle" id="server-info">Disconnected</div>
+        </div>
+        <div class="status">
+          <span class="status-dot" id="status-dot"></span>
+          <span id="status-text">Starting</span>
+        </div>
+      </header>
+
+      <main>
+        <section class="summary">
+          <div class="summary-card">
+            <div class="summary-title">Overview</div>
+            <div class="summary-grid">
+              <div>
+                <div class="label">GPU Count</div>
+                <div class="value" id="gpu-count">-</div>
+              </div>
+              <div>
+                <div class="label">VRAM Usage</div>
+                <div class="value" id="vram-usage">-</div>
+              </div>
+              <div>
+                <div class="label">Avg Utilization</div>
+                <div class="value" id="avg-util">-</div>
+              </div>
+              <div>
+                <div class="label">Avg Temp</div>
+                <div class="value" id="avg-temp">-</div>
+              </div>
+              <div>
+                <div class="label">Driver</div>
+                <div class="value" id="driver-version">-</div>
+              </div>
+              <div>
+                <div class="label">Last Update</div>
+                <div class="value" id="last-update">-</div>
+              </div>
+            </div>
+            <div class="summary-error" id="summary-error"></div>
+          </div>
+        </section>
+
+        <section class="gpu-grid" id="gpu-grid"></section>
+
+        <section class="table-section">
+          <div class="table-title">nvidia-smi style view</div>
+          <div class="table-wrap">
+            <table class="gpu-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Temp</th>
+                  <th>Util</th>
+                  <th>VRAM</th>
+                  <th>Power</th>
+                  <th>Fan</th>
+                </tr>
+              </thead>
+              <tbody id="gpu-table-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
