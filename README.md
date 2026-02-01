@@ -57,7 +57,7 @@ You can also provide config via env vars:
 
 ```
 pip install pyinstaller
-pyinstaller --noconfirm --clean --onefile --name gpu-monitor --add-data "app/static;static" app/main.py
+pyinstaller --noconfirm --clean --onefile --name gpu-monitor --add-data "app/static;static" run.py
 ```
 
 Copy `config.example.json` to `dist/config.json` and edit it before running the EXE.

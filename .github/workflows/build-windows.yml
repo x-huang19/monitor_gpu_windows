@@ -26,7 +26,7 @@ jobs:
 
       - name: Build EXE
         run: |
-          pyinstaller --noconfirm --clean --onefile --name gpu-monitor --add-data "app/static;static" app/main.py
+          pyinstaller --noconfirm --clean --onefile --name gpu-monitor --add-data "app/static;static" run.py
 
       - name: Package config
         run: |

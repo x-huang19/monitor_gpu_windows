@@ -120,7 +120,11 @@ def _open_browser(url: str) -> None:
         return
 
 
-if __name__ == "__main__":
+def run() -> None:
     url = f"http://{config.local_host}:{config.local_port}"
     threading.Timer(1.0, _open_browser, args=(url,)).start()
     uvicorn.run(app, host=config.local_host, port=config.local_port, log_level="info")
+
+
+if __name__ == "__main__":
+    run()
