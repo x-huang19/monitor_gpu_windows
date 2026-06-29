@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import sys
 import threading
+from copy import deepcopy
 import webbrowser
 from datetime import datetime, timezone
 from pathlib import Path
@@ -120,10 +121,24 @@ def _open_browser(url: str) -> None:
         return
 
 
+def _uvicorn_log_config() -> dict:
+    log_config = deepcopy(uvicorn.config.LOGGING_CONFIG)
+    for formatter in log_config.get("formatters", {}).values():
+        if "use_colors" in formatter:
+            formatter["use_colors"] = False
+    return log_config
+
+
 def run() -> None:
     url = f"http://{config.local_host}:{config.local_port}"
     threading.Timer(1.0, _open_browser, args=(url,)).start()
-    uvicorn.run(app, host=config.local_host, port=config.local_port, log_level="info")
+    uvicorn.run(
+        app,
+        host=config.local_host,
+        port=config.local_port,
+        log_level="info",
+        log_config=_uvicorn_log_config(),
+    )
 
 
 if __name__ == "__main__":
